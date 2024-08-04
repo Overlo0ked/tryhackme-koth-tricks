@@ -2,6 +2,10 @@ MACHINE : HOGWARTS
 
 USERS : hermoine , neville , draco
 
+
+$ nmap 10.10.181.100 -sC -T5 -Pn -sV -p 1-10000
+      ( SCAN BEFORE DOING PORTS MAY CHANGES )
+
 PORTS : 
 
       22 - HTTP
